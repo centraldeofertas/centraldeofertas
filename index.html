@@ -34,7 +34,6 @@ body{
     margin-bottom:15px;
 }
 
-/* TÍTULOS */
 .hero h1{
     font-size:20px;
     font-weight:700;
@@ -96,7 +95,7 @@ body{
     transition:width 0.6s ease;
 }
 
-/* BOTÃO */
+/* BOTÃO COM ANIMAÇÃO SUAVE */
 .cta-btn{
     display:block;
     margin-top:18px;
@@ -107,11 +106,19 @@ body{
     text-decoration:none;
     border-radius:40px;
     font-size:15px;
-    transition:0.3s;
+    animation:pulse 2.5s infinite ease-in-out;
 }
 
-.cta-btn:hover{
-    transform:scale(1.05);
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+    100%{
+        transform:scale(1);
+    }
 }
 
 /* SEÇÃO */
@@ -209,7 +216,7 @@ body{
         </div>
     </div>
 
-    <a href="https://chat.whatsapp.com/KupNY0OpRYQ7OAdGT8CCbj" class="cta-btn">
+    <a href="https://chat.whatsapp.com/KupNY0OpRYQ7OAdGT8CCbj" target="_blank" class="cta-btn">
         👉 ENTRAR NO GRUPO VIP
     </a>
 </div>
