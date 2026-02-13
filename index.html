@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Ofertas</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f3f3f3;
+}
+
+/* CABEÇALHO */
+.hero{
+    background:linear-gradient(180deg,#B56652,#9F4F3C);
+    padding:35px 15px 40px;
+    text-align:center;
+    color:#fff;
+}
+
+.profile{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+/* TÍTULOS */
+.hero h1{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:3px;
+}
+
+.hero h2{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.hero p{
+    font-size:13px;
+    opacity:0.95;
+}
+
+/* CARD */
+.card{
+    background:#fff;
+    max-width:420px;
+    margin:-25px auto 0;
+    padding:22px 18px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.card h3{
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+/* BARRA */
+.progress-container{
+    margin:15px 0;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    width:100%;
+    height:18px;
+    background:#eee;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#ff7a00,#ff3c00);
+    border-radius:30px;
+    transition:width 0.6s ease;
+}
+
+/* BOTÃO */
+.cta-btn{
+    display:block;
+    margin-top:18px;
+    padding:14px;
+    background:#25D366;
+    color:#fff;
+    font-weight:600;
+    text-decoration:none;
+    border-radius:40px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.cta-btn:hover{
+    transform:scale(1.05);
+}
+
+/* SEÇÃO */
+.section{
+    max-width:420px;
+    margin:28px auto;
+    padding:0 20px;
+}
+
+.section h4{
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.benefits{
+    list-style:none;
+}
+
+.benefits li{
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+/* NOTIFICAÇÃO */
+.social-proof{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#ffffff;
+    padding:10px 12px;
+    border-radius:14px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    display:none;
+    align-items:center;
+    gap:10px;
+    max-width:300px;
+    animation:slideUp 0.4s ease;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-weight:600;
+    font-size:16px;
+}
+
+.notification-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.notification-name{
+    font-weight:600;
+    font-size:14px;
+    color:#111;
+}
+
+.notification-message{
+    font-size:12px;
+    color:#555;
+}
+
+@keyframes slideUp{
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+    <img src="logo.png" class="profile" alt="Logo Central de Ofertas">
+    <h1>Central de Ofertas</h1>
+    <h2>Os Melhores Preços da Internet!</h2>
+    <p>🔥 Ofertas reais direto no WhatsApp</p>
+</div>
+
+<div class="card">
+    <h3>💥 Entre agora no nosso Grupo VIP e receba achadinhos que esgotam rápido!</h3>
+
+    <div class="progress-container">
+        <div class="progress-info">
+            <span>🔥 Vagas limitadas</span>
+            <span><strong id="percentText">72%</strong> preenchido</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <a href="COLOQUE_SEU_LINK_AQUI" class="cta-btn">
+        👉 ENTRAR NO GRUPO VIP
+    </a>
+</div>
+
+<div class="section">
+    <h4>✅ Por que entrar no Grupo VIP?</h4>
+    <ul class="benefits">
+        <li>✔️ Achadinhos selecionados todos os dias</li>
+        <li>✔️ Cupons exclusivos</li>
+        <li>✔️ Ofertas que esgotam rápido</li>
+        <li>✔️ Frete grátis em diversas promoções</li>
+    </ul>
+</div>
+
+<div class="social-proof" id="socialProof"></div>
+
+<script>
+let percent = 72;
+const maxPercent = 97;
+
+const progressFill = document.getElementById("progressFill");
+const percentText = document.getElementById("percentText");
+const socialProof = document.getElementById("socialProof");
+
+const names = ["Ana","Juliana","Mariana","Camila","Fernanda","Patrícia","Beatriz","Letícia","Bruna","Larissa"];
+
+function updateBar(){
+    progressFill.style.width = percent + "%";
+    percentText.innerText = percent + "%";
+}
+
+function simulateEntry(){
+    if(percent < maxPercent){
+        percent += Math.floor(Math.random() * 2) + 1;
+        if(percent > maxPercent) percent = maxPercent;
+        updateBar();
+
+        const randomName = names[Math.floor(Math.random() * names.length)];
+        const initial = randomName.charAt(0);
+
+        socialProof.innerHTML = `
+            <div class="avatar">${initial}</div>
+            <div class="notification-text">
+                <div class="notification-name">${randomName}</div>
+                <div class="notification-message">entrou no grupo agora mesmo</div>
+            </div>
+        `;
+
+        socialProof.style.display = "flex";
+
+        setTimeout(()=>{
+            socialProof.style.display = "none";
+        },4000);
+    }
+}
+
+updateBar();
+setInterval(simulateEntry, 7000);
+</script>
+
+</body>
+</html>
